@@ -11,7 +11,7 @@
 
 
 
-class EaterEater{
+class EaterEater {
     constructor(x,y){
         this.x = x
         this.y = y

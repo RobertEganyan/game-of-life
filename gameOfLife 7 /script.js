@@ -127,19 +127,19 @@ function draw() {
 
              
 
-                for(let i in predatorArr){
-                        predatorArr[i].eat()
-                }
+                // for(let i in predatorArr){
+                //         predatorArr[i].eat()
+                // }
  
 
-                for(let i in EaterEaterArr){
-                        EaterEaterArr[i].eat()
-                }
-                for(let i in ClosedArr){
-                        ClosedArr[i].mul()
-                        console.log(ClosedArr);
+                // for(let i in EaterEaterArr){
+                //         EaterEaterArr[i].eat()
+                // }
+                // for(let i in ClosedArr){
+                //         ClosedArr[i].mul()
+                //         console.log(ClosedArr);
                         
-                }
+                // }
  
 
 }

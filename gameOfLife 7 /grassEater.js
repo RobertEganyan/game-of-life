@@ -1,47 +1,32 @@
-class GrassEater{
-    constructor(x,y){
-        this.x = x
-        this.y = y
-        this.energy = 10
-        this.directions = [ ];
-    }
+class GrassEater extends LivingCreature{
+    constructor(x, y, index){
 
-
-    getNewCoordinates(){
-        this.directions = [
-            [this.x - 1, this.y - 1],
-            [this.x    , this.y - 1],
-            [this.x + 1, this.y - 1],
-            [this.x - 1, this.y    ],
-            [this.x + 1, this.y    ],
-            [this.x - 1, this.y + 1],
-            [this.x    , this.y + 1],
-            [this.x + 1, this.y + 1]
-        ];
-    }
-
-
-
-    chooseCell(char){
-        this.getNewCoordinates()
-        let found = []
-
-
-        for(let i in this.directions){
-                         let x =   this.directions[i][0]
-                         let y =   this.directions[i][1]
-              if(x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length){
-                           if(matrix[y][x] == char ){
-                                   found.push(this.directions[i])
-                           }
-              }
+        super(x, y, index);
+        this.energy = 8;
+        
         }
 
+        getNewCoordinates() {
+            this.directions = [
+                [this.x - 1, this.y - 1],
+                [this.x, this.y - 1],
+                [this.x + 1, this.y - 1],
+                [this.x - 1, this.y],
+                [this.x + 1, this.y],
+                [this.x - 1, this.y + 1],
+                [this.x, this.y + 1],
+                [this.x + 1, this.y + 1]
+            ];
+        }
+    
 
-        return found
+        chooseCell(character) {
 
-   }
-
+            this.getNewCoordinates();
+            
+            return super.chooseCell(character);
+            
+            }
 
      mul(){
          let emptyCell = this.chooseCell(0)
@@ -116,16 +101,6 @@ class GrassEater{
      }
 
 
-     die(){
-         matrix[this.y][this.x] = 0
-
-           for(let i in grassEaterArr){
-                    if(this.x == grassEaterArr[i].x && this.y == grassEaterArr[i].y) {
-                              grassEaterArr.splice(i,1)
-                    }
-           }
-     }
-     
 
           die(){
          matrix[this.y][this.x] = 0
