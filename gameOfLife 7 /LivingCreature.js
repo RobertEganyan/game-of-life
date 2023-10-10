@@ -1,4 +1,7 @@
-class LivingCreature {
+ 
+
+
+module.exports = class LivingCreature {
 
     constructor(x, y, index){
     this.x = x;
@@ -18,19 +21,29 @@ class LivingCreature {
     
     }
     
-    chooseCell(ch) {
-    var found = [];
-    for (var i in this.directions) {
-    var x = this.directions[i][0];
-    var y = this.directions[i][1];
-    
-    if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length){
-    if (matrix[y][x] == ch) {
-    found.push(this.directions[i]);
-    
-    }
-    }
-    }
-    return found;
+    chooseCell(char, char1) {
+
+        let found = []
+
+
+        for (let i in this.directions) {
+            let x = this.directions[i][0]
+            let y = this.directions[i][1]
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
+                if (matrix[y][x] == char) {
+                    found.push(this.directions[i])
+                }
+            }
+
+            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
+                if (matrix[y][x] == char1) {
+                    found.push(this.directions[i])
+                }
+            }
+        }
+
+
+        return found
+
     }
     }

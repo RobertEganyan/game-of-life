@@ -1,4 +1,6 @@
-class Closed extends LivingCreature{
+
+
+module.exports =class Closed extends LivingCreature{
     
 
 

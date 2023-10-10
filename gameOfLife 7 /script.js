@@ -1,3 +1,11 @@
+
+Grass = require('./grass.js')
+GrassEater = require('./grassEater.js')
+Predator = require('./predator.js')
+EaterEater = require('./EaterEater.js')
+Closed = require('./closed')
+
+
 function matrixGenerator(matrixSize, grass,grassEater,predator,eaterEater, closed) {
         var matrix = []
         ////  matrix սարքելու հատված
@@ -127,9 +135,9 @@ function draw() {
 
              
 
-                // for(let i in predatorArr){
-                //         predatorArr[i].eat()
-                // }
+                for(let i in predatorArr){
+                        predatorArr[i].eat()
+                }
  
 
                 // for(let i in EaterEaterArr){
@@ -140,9 +148,14 @@ function draw() {
                 //         console.log(ClosedArr);
                         
                 // }
- 
+ console.log(predatorArr.length)
 
 }
+
+
+
+
+
 
 
 
