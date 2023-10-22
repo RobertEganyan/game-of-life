@@ -1,9 +1,29 @@
 var socket = io();
 
 
-socket.on("name", handleInfo)
+socket.on("mymatrix", handleMatrix)
 
 
-function handleInfo(esim){
-    console.log(esim)
+function setup() {
+    createCanvas(side,side);
+    bacground('3#')
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

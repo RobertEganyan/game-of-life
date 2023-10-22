@@ -57,8 +57,7 @@ function matrixGenerator(matrixSize, grass,grassEater,predator,eaterEater, close
         return matrix
 }
 
-let matrix = matrixGenerator(20, 17,7,4, 12, 12)
-let side = 30
+
 ///օբյեկտներ պահելու զանգվածներ
 var grassArr = []
 var grassEaterArr = []
