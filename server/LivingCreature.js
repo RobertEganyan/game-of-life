@@ -1,5 +1,4 @@
- 
-
+let random = require("./random");
 
 module.exports = class LivingCreature {
 

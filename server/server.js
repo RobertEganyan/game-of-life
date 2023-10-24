@@ -15,9 +15,30 @@ server.listen(3000, function () {
 
 
 
+let grass = require('./grass')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ grassArr = []
+ grassEaterArr = []
+ predatorArr = []
+ EaterEaterArr = []
+ ClosedArr = []
+
 io.on('connection', function (socket) {
 
-    socket.emit("name", matrix);
+    socket.emit("mymatrix", matrix);
 
 
     // socket.on("send message", function (data) {
@@ -86,10 +107,71 @@ function matrixGenerator(matrixSize, grass,grassEater,predator,eaterEater, close
 
 
 let matrix = matrixGenerator(20, 17,7,4, 12, 12)
-
+crObj()
 console.log(matrix)
 
 
 
+function crObj()  {
+
+
+               
+                for (let y = 0; y < matrix.length; y++) {
+                        for (let x = 0; x < matrix[y].length; x++) {
+                                if (matrix[y][x] == 1) {
+                                        let grass = new Grass(x, y)
+        
+                                        grassArr.push(grass)
+        
+        
+                                } else if(matrix[y][x] == 2){
+                                     let grEat = new  GrassEater(x,y)
+                                     grassEaterArr.push(grEat)
+                                }else if(matrix[y][x] ==  3){
+                                     let pre = new Predator(x,y)
+                                     predatorArr.push(pre)
+                                }else if(matrix[y][x] ==  4){
+                                        let eat = new EaterEater(x,y)
+                                        EaterEaterArr.push(eat)
+                                }else if(matrix[y][x] ==  5){
+                                        let clsd = new Closed(x,y)
+                                        ClosedArr.push(clsd)
+                                }
+        
+        
+        
+                        }
+                }
+        
+        } 
+
+
+
+
+
+
+function start() {
+
+        for (let i in grassArr) {
+                grassArr[i].mul()
+        }
+
+
+        for(let i in grassEaterArr){
+                grassEaterArr[i].eat()
+        }
+
+     
+
+        for(let i in predatorArr){
+                predatorArr[i].eat()
+        }
+        console.log("-------")
+        io.sockets.emit("mymatrix", matrix);
+}
+
+
+
+setInterval(start,1000 )
 
 
