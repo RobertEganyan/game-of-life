@@ -1,3 +1,4 @@
+let LivingCreature = require('./LivingCreature')
  
 
 

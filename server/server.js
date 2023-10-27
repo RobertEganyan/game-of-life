@@ -15,7 +15,11 @@ server.listen(3000, function () {
 
 
 
-let grass = require('./grass')
+let Grass = require('./grass')
+let EaterEater = require('./EaterEater')
+let GrassEater = require('./grassEater')
+let Predator = require('./predator')
+let Closed = require('./closed')
 
 
 
@@ -52,9 +56,10 @@ io.on('connection', function (socket) {
 
 
 
-
+matrix = matrixGenerator(20, 17,7,4, 12, 12)
 function matrixGenerator(matrixSize, grass,grassEater,predator,eaterEater, closed) {
-    var matrix = []
+ 
+let matrix = []
     ////  matrix սարքելու հատված
     for (let i = 0; i < matrixSize; i++) {
             matrix.push([])
@@ -106,7 +111,7 @@ function matrixGenerator(matrixSize, grass,grassEater,predator,eaterEater, close
 
 
 
-let matrix = matrixGenerator(20, 17,7,4, 12, 12)
+
 crObj()
 console.log(matrix)
 
@@ -173,5 +178,7 @@ function start() {
 
 
 setInterval(start,1000 )
+
+
 
 
